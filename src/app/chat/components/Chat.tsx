@@ -7,7 +7,7 @@ export const Chat = () => {
   const [response, setResponse] = useState('')
   const [message, setMessages] = useState('')
 
-  const handleButtonClick = useCallback(async () => {
+  const handleSubmit = useCallback(async () => {
     const response: FetchOpenaiResponse = await fetchOpenai(message)
     // const response: FetchOpenaiResponse = 'hello'
     setResponse(response)
@@ -21,7 +21,7 @@ export const Chat = () => {
     <main>
       <div>{response}</div>
       <textarea value={message} onChange={handleTextareaChange} />
-      <button onClick={handleButtonClick}>submit</button>
+      <button onClick={handleSubmit}>submit</button>
     </main>
   )
 }
