@@ -1,4 +1,3 @@
-'use client'
 import { FC } from 'react'
 import { ChangeEvent, FormEvent } from 'react'
 import { Message } from '../types'
