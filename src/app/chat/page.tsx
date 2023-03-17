@@ -1,10 +1,10 @@
-import { Chat } from './components/Chat'
+import { ChatContainer } from './containers/ChatContainer'
 
 const Home = async() => {
   return (
     <main>
       <h1>chatgpt-my-client</h1>
-      <Chat />
+      <ChatContainer />
     </main>
   )
 }

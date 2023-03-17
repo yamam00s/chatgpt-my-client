@@ -1,40 +1,16 @@
 'use client'
+import { FC } from 'react'
+import { ChangeEvent, FormEvent } from 'react'
+import { Message } from '../types'
 
-import { useState, useCallback, ChangeEvent, FormEvent } from 'react'
-import { fetchOpenai, FetchOpenaiResponse } from '../api/fetchOpenai'
-
-type Role = 'user' | 'gpt'
-type Message = {
-  id: number,
-  role: Role,
-  text: FetchOpenaiResponse
+export interface ChatProps {
+  prompt: string
+  messages: Message[]
+  handleSubmit: (event: FormEvent) => Promise<void>
+  handleTextareaChange: (event: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export const Chat = () => {
-  const [prompt, setPrompt] = useState('')
-  const [messages, setMessages] = useState<Message[]>([])
-  const [messageId, setMessageId] = useState(0)
-
-  const addMessage = useCallback((role: Role, text: string) => {
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { id: messageId, role, text}
-    ]);
-    setMessageId((prevCounter) => prevCounter + 1)
-  }, [messageId, setMessages])
-
-  const handleTextareaChange = useCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
-    setPrompt(event.target.value)
-  }, [setPrompt])
-
-  const handleSubmit = useCallback(async (event: FormEvent) => {
-    event.preventDefault()
-    addMessage('user', prompt)
-    // const response: FetchOpenaiResponse = await fetchOpenai(message)
-    const response: FetchOpenaiResponse = 'hello'
-    addMessage('gpt', response)
-    setPrompt('')
-  }, [prompt, addMessage])
+export const Chat: FC<ChatProps> = ({ prompt, messages, handleSubmit, handleTextareaChange}) => {
 
   return (
     <div className='chat'>
