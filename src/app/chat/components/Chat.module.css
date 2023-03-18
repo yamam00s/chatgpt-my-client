@@ -1,0 +1,61 @@
+/* チャットエリア */
+.chatArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+/* メッセージカード */
+.messageCard {
+  max-width: 80%;
+  background-color: #444;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* 自分のメッセージカード */
+.messageCard.mine {
+  align-self: flex-end;
+  background-color: #3a6fc0;
+}
+
+/* 入力エリア */
+.inputArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #444;
+  border-top: 1px solid #222;
+}
+
+/* メッセージ入力 */
+.messageInput {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: #f2f2f2;
+}
+
+/* 送信ボタン */
+.sendButton {
+  background-color: #4a8cf0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+/* 送信ボタン（ホバー時） */
+.sendButton:hover {
+  background-color: #3a6fc0;
+}
