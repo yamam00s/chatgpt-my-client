@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { ChangeEvent, FormEvent } from 'react'
+import { FC, ChangeEvent, FormEvent  } from 'react'
+import { Button, ButtonProps } from '@/components'
 import { Message } from '../types'
 import styles from './Chat.module.css'
 
@@ -22,7 +22,8 @@ export const Chat: FC<ChatProps> = ({ prompt, messages, handleSubmit, handleText
 
     <form className={styles.inputArea} onSubmit={handleSubmit}>
       <textarea className={styles.messageInput} value={prompt} onChange={handleTextareaChange} />
-      <button className={styles.sendButton} type='submit'>submit</button>
+      <Button type='submit'>submit</Button>
     </form>
   </div>
 )
+
