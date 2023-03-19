@@ -2,10 +2,10 @@ import { FC } from 'react'
 import styles from './Button.module.css'
 
 export interface ButtonProps {
-  onClick?: () => void;
-  children: React.ReactNode;
-  className?: string;
-  disabled?: boolean;
+  onClick?: () => void
+  children: React.ReactNode
+  className?: string
+  disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
 }
 
