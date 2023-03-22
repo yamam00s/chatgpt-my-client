@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styles from './Textarea.module.css'
 
-interface TextareaProps {
+export interface TextareaProps {
   value: string
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   className?: string
