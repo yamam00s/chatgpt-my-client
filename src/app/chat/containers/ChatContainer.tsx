@@ -1,6 +1,6 @@
 'use client'
-import { FC } from 'react'
-import { useState, useCallback, ChangeEvent, FormEvent } from 'react'
+import { FC, useState, useCallback, ChangeEvent, FormEvent } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import { ChatGPTResponse, retrieveChatGPTResponse } from '../api/retrieveChatGPTResponse'
 import { Chat, ChatProps } from '../components/Chat'
 import { Role, Message } from '../types'
@@ -10,15 +10,14 @@ import '@/mocks/index'
 export const ChatContainer: FC = () => {
   const [prompt, setPrompt] = useState('')
   const [messages, setMessages] = useState<Message[]>([])
-  const [messageId, setMessageId] = useState(0)
 
   const addMessage = useCallback((role: Role, text: string) => {
+    const uniqueId = uuidv4();
     setMessages((prevMessages) => [
       ...prevMessages,
-      { id: messageId, role, text}
+      { id: uniqueId, role, text}
     ]);
-    setMessageId((prevCounter) => prevCounter + 1)
-  }, [messageId, setMessages])
+  }, [setMessages])
 
   const handleSubmit = useCallback(async (event: FormEvent) => {
     event.preventDefault()
