@@ -1,4 +1,3 @@
-import { Configuration, OpenAIApi } from "openai";
 import { OPENAI_API_KEY } from '@/config'
 import { OPENAI_API_URL } from '@/constants'
 
