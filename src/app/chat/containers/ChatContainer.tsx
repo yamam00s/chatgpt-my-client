@@ -1,9 +1,11 @@
 'use client'
 import { FC } from 'react'
 import { useState, useCallback, ChangeEvent, FormEvent } from 'react'
-import { fetchOpenai, FetchOpenaiResponse } from '../api/fetchOpenai'
+import { ChatGPTResponse, retrieveChatGPTResponse } from '../api/retrieveChatGPTResponse'
 import { Chat, ChatProps } from '../components/Chat'
 import { Role, Message } from '../types'
+// TODO Initの場所を再検討
+import '@/mocks/index'
 
 export const ChatContainer: FC = () => {
   const [prompt, setPrompt] = useState('')
@@ -21,8 +23,7 @@ export const ChatContainer: FC = () => {
   const handleSubmit = useCallback(async (event: FormEvent) => {
     event.preventDefault()
     addMessage('user', prompt)
-    // const response: FetchOpenaiResponse = await fetchOpenai(message)
-    const response: FetchOpenaiResponse = 'hello'
+    const response: ChatGPTResponse = await retrieveChatGPTResponse(prompt)
     addMessage('gpt', response)
     setPrompt('')
   }, [prompt, addMessage])
