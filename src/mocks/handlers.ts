@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { rest } from 'msw';
 
 import { OPENAI_API_URL } from '@/constants';
