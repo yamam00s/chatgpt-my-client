@@ -1,16 +1,16 @@
-import { FC, ChangeEvent, FormEvent  } from 'react'
-import { Button, Textarea } from '@/components'
-import { Message } from '../types'
-import styles from './Chat.module.css'
+import { FC, ChangeEvent, FormEvent } from 'react';
+import { Button, Textarea } from '@/components';
+import { Message } from '../types';
+import styles from './Chat.module.css';
 
 export interface ChatProps {
-  prompt: string
-  messages: Message[]
-  handleSubmit: (event: FormEvent) => Promise<void>
-  handleTextareaChange: (event: ChangeEvent<HTMLTextAreaElement>) => void
+  prompt: string;
+  messages: Message[];
+  handleSubmit: (event: FormEvent) => Promise<void>;
+  handleTextareaChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-export const Chat: FC<ChatProps> = ({ prompt, messages, handleSubmit, handleTextareaChange}) => (
+export const Chat: FC<ChatProps> = ({ prompt, messages, handleSubmit, handleTextareaChange }) => (
   <div>
     <div className={styles.chatArea}>
       {messages.map(message => (
@@ -22,8 +22,7 @@ export const Chat: FC<ChatProps> = ({ prompt, messages, handleSubmit, handleText
 
     <form className={styles.inputArea} onSubmit={handleSubmit}>
       <Textarea value={prompt} onChange={handleTextareaChange} />
-      <Button type='submit'>submit</Button>
+      <Button type="submit">submit</Button>
     </form>
   </div>
-)
-
+);

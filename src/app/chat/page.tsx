@@ -1,12 +1,12 @@
-import { ChatContainer } from './containers/ChatContainer'
+import { ChatContainer } from './containers/ChatContainer';
 
-const Home = async() => {
+const Home = async () => {
   return (
     <main>
       <h1>chatgpt-my-client</h1>
       <ChatContainer />
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,15 +1,15 @@
-import { StoryFn, Meta } from '@storybook/react'
-import { Textarea, TextareaProps } from './Textarea'
+import { StoryFn, Meta } from '@storybook/react';
+import { Textarea, TextareaProps } from './Textarea';
 
 export default {
   title: 'Components/Textarea',
   component: Textarea
-} as Meta<TextareaProps>
+} as Meta<TextareaProps>;
 
-const Template: StoryFn<TextareaProps> = (args) => <Textarea {...args}/>
+const Template: StoryFn<TextareaProps> = args => <Textarea {...args} />;
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 Default.args = {
   value: '',
   onChange: () => undefined
-}
+};
