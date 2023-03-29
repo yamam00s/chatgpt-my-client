@@ -1,4 +1,5 @@
 import { StoryFn, Meta } from '@storybook/react';
+
 import { Textarea, TextareaProps } from './Textarea';
 
 export default {
@@ -6,10 +7,10 @@ export default {
   component: Textarea
 } as Meta<TextareaProps>;
 
-const Template: StoryFn<TextareaProps> = args => <Textarea {...args} />;
+const Template: StoryFn<TextareaProps> = args => {return <Textarea {...args} />};
 
 export const Default = Template.bind({});
 Default.args = {
   value: '',
-  onChange: () => undefined
+  onChange: () => {return undefined}
 };

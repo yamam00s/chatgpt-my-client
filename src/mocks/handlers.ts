@@ -1,4 +1,5 @@
 import { rest } from 'msw';
+
 import { OPENAI_API_URL } from '@/constants';
 
 export const handlers = [

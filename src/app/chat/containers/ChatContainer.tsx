@@ -1,6 +1,7 @@
 'use client';
 import { FC, useState, useCallback, ChangeEvent, FormEvent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
 import { ChatGPTResponse, retrieveChatGPTResponse } from '../api/retrieveChatGPTResponse';
 import { Chat, ChatProps } from '../components/Chat';
 import { Role, Message } from '../types';
@@ -14,7 +15,7 @@ export const ChatContainer: FC = () => {
   const addMessage = useCallback(
     (role: Role, text: string) => {
       const uniqueId = uuidv4();
-      setMessages(prevMessages => [...prevMessages, { id: uniqueId, role, text }]);
+      setMessages(prevMessages => {return [...prevMessages, { id: uniqueId, role, text }]});
     },
     [setMessages]
   );

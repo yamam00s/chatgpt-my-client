@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import styles from './Textarea.module.css';
 
 export interface TextareaProps {
@@ -8,11 +9,11 @@ export interface TextareaProps {
   placeholder?: string;
 }
 
-export const Textarea: FC<TextareaProps> = ({ value, onChange, className, placeholder }) => (
+export const Textarea: FC<TextareaProps> = ({ value, onChange, className, placeholder }) => {return (
   <textarea
     value={value}
     onChange={onChange}
     className={`${styles.defaultTextarea} ${className}`}
     placeholder={placeholder}
   />
-);
+)};
