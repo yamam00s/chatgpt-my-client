@@ -17,12 +17,14 @@
     "eslint:recommended",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
     "plugin:storybook/recommended",
     "prettier"
   ],
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     // PJ rules
     "curly": "error",
@@ -51,6 +53,26 @@
       {
         "selector": "TSEnumDeclaration",
         "message": "Don't declare enums"
+      }
+    ],
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/no-anonymous-default-export": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    // 親階層のimportに相対パス使用禁止
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["../"]
       }
     ]
   }
