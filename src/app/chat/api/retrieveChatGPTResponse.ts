@@ -1,5 +1,6 @@
 import { OPENAI_API_KEY } from '@/config';
 import { OPENAI_API_URL } from '@/constants';
+import 'whatwg-fetch';
 
 export type ChatGPTResponse = string;
 type RetrieveChatGPTResponse = (prompt: string) => Promise<ChatGPTResponse>;
