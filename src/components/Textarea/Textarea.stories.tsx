@@ -7,10 +7,14 @@ export default {
   component: Textarea
 } as Meta<TextareaProps>;
 
-const Template: StoryFn<TextareaProps> = args => {return <Textarea {...args} />};
+const Template: StoryFn<TextareaProps> = args => {
+  return <Textarea {...args} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {
   value: '',
-  onChange: () => {return undefined}
+  onChange: () => {
+    return undefined;
+  }
 };

@@ -13,19 +13,23 @@ export interface ChatProps {
   handleTextareaChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-export const Chat: FC<ChatProps> = ({ prompt, messages, handleSubmit, handleTextareaChange }) => {return (
-  <div>
-    <div className={styles.chatArea}>
-      {messages.map(message => {return (
-        <p className={`${styles.messageCard} ${message.role === 'user' && styles.mine}`} key={message.id}>
-          {message.role}: {message.text}
-        </p>
-      )})}
-    </div>
+export const Chat: FC<ChatProps> = ({ prompt, messages, handleSubmit, handleTextareaChange }) => {
+  return (
+    <div>
+      <div className={styles.chatArea}>
+        {messages.map(message => {
+          return (
+            <p className={`${styles.messageCard} ${message.role === 'user' && styles.mine}`} key={message.id}>
+              {message.role}: {message.text}
+            </p>
+          );
+        })}
+      </div>
 
-    <form className={styles.inputArea} onSubmit={handleSubmit}>
-      <Textarea value={prompt} onChange={handleTextareaChange} />
-      <Button type="submit">submit</Button>
-    </form>
-  </div>
-)};
+      <form className={styles.inputArea} onSubmit={handleSubmit}>
+        <Textarea value={prompt} onChange={handleTextareaChange} />
+        <Button type="submit">submit</Button>
+      </form>
+    </div>
+  );
+};

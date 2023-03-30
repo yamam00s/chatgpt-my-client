@@ -15,7 +15,9 @@ export const ChatContainer: FC = () => {
   const addMessage = useCallback(
     (role: Role, text: string) => {
       const uniqueId = uuidv4();
-      setMessages(prevMessages => {return [...prevMessages, { id: uniqueId, role, text }]});
+      setMessages(prevMessages => {
+        return [...prevMessages, { id: uniqueId, role, text }];
+      });
     },
     [setMessages]
   );

@@ -9,11 +9,13 @@ export interface TextareaProps {
   placeholder?: string;
 }
 
-export const Textarea: FC<TextareaProps> = ({ value, onChange, className, placeholder }) => {return (
-  <textarea
-    value={value}
-    onChange={onChange}
-    className={`${styles.defaultTextarea} ${className}`}
-    placeholder={placeholder}
-  />
-)};
+export const Textarea: FC<TextareaProps> = ({ value, onChange, className, placeholder }) => {
+  return (
+    <textarea
+      value={value}
+      onChange={onChange}
+      className={`${styles.defaultTextarea} ${className}`}
+      placeholder={placeholder}
+    />
+  );
+};

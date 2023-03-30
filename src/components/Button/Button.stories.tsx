@@ -7,7 +7,9 @@ export default {
   component: Button
 } as Meta<ButtonProps>;
 
-const Template: StoryFn<ButtonProps> = args => {return <Button {...args} />};
+const Template: StoryFn<ButtonProps> = args => {
+  return <Button {...args} />;
+};
 
 export const Primary = Template.bind({});
 Primary.args = {
