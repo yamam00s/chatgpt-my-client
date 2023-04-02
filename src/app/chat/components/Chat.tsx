@@ -27,7 +27,7 @@ export const Chat: FC<ChatProps> = ({ prompt, messages, handleSubmit, handleText
       </div>
 
       <form className={styles.inputArea} onSubmit={handleSubmit}>
-        <Textarea value={prompt} onChange={handleTextareaChange} />
+        <Textarea placeholder="Type your message..." value={prompt} onChange={handleTextareaChange} />
         <Button type="submit">submit</Button>
       </form>
     </div>

@@ -6,7 +6,7 @@ import { ChatGPTResponse, retrieveChatGPTResponse } from '../api/retrieveChatGPT
 import { Chat, ChatProps } from '../components/Chat';
 import { Role, Message } from '../types';
 // TODO Initの場所を再検討
-import '@/mocks/index';
+// import '@/mocks/index';
 
 export const ChatContainer: FC = () => {
   const [prompt, setPrompt] = useState('');

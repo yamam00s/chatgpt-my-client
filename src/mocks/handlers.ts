@@ -12,7 +12,7 @@ export const mockResponse = {
       index: 0,
       message: {
         role: 'assistant',
-        content: '\n\n mock response'
+        content: 'mock response'
       },
       finish_reason: 'stop'
     }

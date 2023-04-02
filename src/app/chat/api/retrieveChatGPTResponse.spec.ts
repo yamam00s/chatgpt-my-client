@@ -4,7 +4,7 @@ import { OPENAI_API_URL } from '@/constants';
 import { mockResponse } from '@/mocks/handlers';
 import { server } from '@/mocks/server';
 
-import { retrieveChatGPTResponse } from '../retrieveChatGPTResponse';
+import { retrieveChatGPTResponse } from './retrieveChatGPTResponse';
 
 const testPrompt = 'test';
 
