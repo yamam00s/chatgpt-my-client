@@ -1,9 +1,15 @@
 import { OPENAI_API_KEY } from '@/config';
 import { OPENAI_API_URL } from '@/constants';
+
 import 'whatwg-fetch';
+import { Role } from '../types';
 
 export type ChatGPTResponse = string;
-type RetrieveChatGPTResponse = (prompt: string) => Promise<ChatGPTResponse>;
+export type Postmessage = {
+  role: Role;
+  content: string;
+};
+type RetrieveChatGPTResponse = (message: Postmessage[], prompt: string) => Promise<ChatGPTResponse>;
 
 const modelName = 'gpt-3.5-turbo';
 const headers = {
@@ -11,13 +17,13 @@ const headers = {
   'Authorization': `Bearer ${OPENAI_API_KEY}`
 };
 
-export const retrieveChatGPTResponse: RetrieveChatGPTResponse = async (prompt: string) => {
+export const retrieveChatGPTResponse: RetrieveChatGPTResponse = async (messages: Postmessage[], prompt: string) => {
   try {
     const response = await fetch(OPENAI_API_URL, {
       method: 'POST',
       body: JSON.stringify({
         model: modelName,
-        messages: [{ role: 'user', content: prompt }]
+        messages: [...messages, { role: 'user', content: prompt }]
       }),
       headers
     });

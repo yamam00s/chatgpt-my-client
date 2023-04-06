@@ -1,4 +1,4 @@
-export type Role = 'user' | 'gpt';
+export type Role = 'user' | 'system';
 
 export type Message = {
   id: string;

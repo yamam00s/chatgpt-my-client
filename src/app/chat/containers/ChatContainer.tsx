@@ -2,7 +2,7 @@
 import { FC, useState, useCallback, ChangeEvent, FormEvent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { ChatGPTResponse, retrieveChatGPTResponse } from '../api/retrieveChatGPTResponse';
+import { ChatGPTResponse, Postmessage, retrieveChatGPTResponse } from '../api/retrieveChatGPTResponse';
 import { Chat, ChatProps } from '../components/Chat';
 import { Role, Message } from '../types';
 // TODO Initの場所を再検討
@@ -28,11 +28,17 @@ export const ChatContainer: FC = () => {
     async (event: FormEvent) => {
       event.preventDefault();
       addMessage('user', prompt);
-      const response: ChatGPTResponse = await retrieveChatGPTResponse(prompt);
-      addMessage('gpt', response);
+      const postMessages: Postmessage[] = messages.map(message => {
+        return {
+          role: message.role,
+          content: message.text
+        };
+      });
+      const response: ChatGPTResponse = await retrieveChatGPTResponse(postMessages, prompt);
+      addMessage('system', response);
       setPrompt('');
     },
-    [prompt, addMessage]
+    [prompt, addMessage, messages]
   );
 
   const handleTextareaChange = useCallback(
