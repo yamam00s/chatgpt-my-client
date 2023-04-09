@@ -31,9 +31,9 @@ describe('ChatContainer', () => {
     fireEvent.change(input, { target: { value: inputMessage } });
     fireEvent.click(sendButton);
     await waitFor(() => {
-      return screen.getByText(`gpt: ${mockResponseText}`);
+      return screen.getByText(`system: ${mockResponseText}`);
     });
     expect(screen.getByText(`user: ${inputMessage}`)).toBeInTheDocument();
-    expect(screen.getByText(`gpt: ${mockResponseText}`)).toBeInTheDocument();
+    expect(screen.getByText(`system: ${mockResponseText}`)).toBeInTheDocument();
   });
 });
