@@ -1,7 +1,5 @@
 import { FC } from 'react';
 
-import styles from './Textarea.module.css';
-
 export interface TextareaProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -14,7 +12,7 @@ export const Textarea: FC<TextareaProps> = ({ value, onChange, className, placeh
     <textarea
       value={value}
       onChange={onChange}
-      className={`${styles.defaultTextarea} ${className}`}
+      className={`resize-none p-2 border border-gray-300 rounded ${className}`}
       placeholder={placeholder}
     />
   );
