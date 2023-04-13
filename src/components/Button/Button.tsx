@@ -1,7 +1,5 @@
 import { FC } from 'react';
 
-import styles from './Button.module.css';
-
 export interface ButtonProps {
   onClick?: () => void;
   children: React.ReactNode;
@@ -12,7 +10,12 @@ export interface ButtonProps {
 
 export const Button: FC<ButtonProps> = ({ onClick, children, className, disabled, type = 'button' }) => {
   return (
-    <button onClick={onClick} className={`${styles.defaultButton} ${className}`} disabled={disabled} type={type}>
+    <button
+      onClick={onClick}
+      className={`bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded ${className}`}
+      disabled={disabled}
+      type={type}
+    >
       {children}
     </button>
   );
