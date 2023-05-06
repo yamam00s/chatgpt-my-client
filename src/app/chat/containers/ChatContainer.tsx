@@ -50,7 +50,9 @@ export const ChatContainer: FC = () => {
   );
 
   useEffect(() => {
-    addMessage('system', data);
+    if (data) {
+      addMessage('system', data);
+    }
   }, [addMessage, data]);
 
   const props: ChatProps = {

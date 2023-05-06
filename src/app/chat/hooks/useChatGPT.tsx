@@ -36,7 +36,9 @@ const fetcher = async (url: string, { arg }: { arg: { messages: Postmessage[]; p
 };
 
 export function useChatGPT() {
-  const { trigger, data, error, isMutating } = useSWRMutation(OPENAI_API_URL, fetcher);
+  const { trigger, data, error, isMutating } = useSWRMutation(OPENAI_API_URL, fetcher, {
+    populateCache: true
+  });
 
   return {
     trigger,
