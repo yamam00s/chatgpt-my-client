@@ -12,7 +12,7 @@ export const Textarea: FC<TextareaProps> = ({ value, onChange, className, placeh
     <textarea
       value={value}
       onChange={onChange}
-      className={`resize-none p-2 border border-gray-300 rounded ${className}`}
+      className={`flex-grow bg-gray-800 text-gray-200 p-2 border-none outline-none rounded ${className}`}
       placeholder={placeholder}
     />
   );
