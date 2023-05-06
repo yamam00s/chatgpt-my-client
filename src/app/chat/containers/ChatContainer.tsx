@@ -1,9 +1,10 @@
 'use client';
-import { FC, useState, useCallback, ChangeEvent, FormEvent } from 'react';
+import { FC, useState, useCallback, ChangeEvent, FormEvent, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { ChatGPTResponse, Postmessage, retrieveChatGPTResponse } from '../api/retrieveChatGPTResponse';
+// import { ChatGPTResponse, Postmessage, retrieveChatGPTResponse } from '../api/retrieveChatGPTResponse';
 import { Chat, ChatProps } from '../components/Chat';
+import { Postmessage, useChatGPT } from '../hooks/useChatGPT';
 import { Role, Message } from '../types';
 // TODO Initの場所を再検討
 if (process.env.NODE_ENV === 'development') {
@@ -13,6 +14,7 @@ if (process.env.NODE_ENV === 'development') {
 export const ChatContainer: FC = () => {
   const [prompt, setPrompt] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
+  const { trigger, data } = useChatGPT();
 
   const addMessage = useCallback(
     (role: Role, text: string) => {
@@ -34,11 +36,10 @@ export const ChatContainer: FC = () => {
           content: message.text
         };
       });
-      const response: ChatGPTResponse = await retrieveChatGPTResponse(postMessages, prompt);
-      addMessage('system', response);
+      await trigger({ messages: postMessages, prompt });
       setPrompt('');
     },
-    [prompt, addMessage, messages]
+    [prompt, addMessage, messages, trigger]
   );
 
   const handleTextareaChange = useCallback(
@@ -47,6 +48,10 @@ export const ChatContainer: FC = () => {
     },
     [setPrompt]
   );
+
+  useEffect(() => {
+    addMessage('system', data);
+  }, [addMessage, data]);
 
   const props: ChatProps = {
     prompt,
