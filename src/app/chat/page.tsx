@@ -1,6 +1,6 @@
 import { ChatContainer } from './containers/ChatContainer';
 
-const Home = async () => {
+const Chat = async () => {
   return (
     <main>
       <h1>chatgpt-my-client</h1>
@@ -9,4 +9,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default Chat;
